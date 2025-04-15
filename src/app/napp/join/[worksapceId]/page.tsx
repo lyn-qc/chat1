@@ -63,7 +63,7 @@ export default function JoinPage() {
                         variant="outline"
                         asChild
                     >
-                        <Link href="/chat">
+                        <Link href="/napp/chat">
                             返回首页
                         </Link>
                     </Button>

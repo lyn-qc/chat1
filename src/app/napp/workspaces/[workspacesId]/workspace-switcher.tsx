@@ -56,9 +56,9 @@ export default function WorkspaceSwitcher() {
                             <DropdownMenuItem
                                 key={workspacecur._id}
                                 className="cursor-pointer  capitalize overflow-hidden"
-                                onClick={() => { router.push(`/workspaces/${workspacecur._id}`) }}
+                                onClick={() => { router.push(`/napp/workspaces/${workspacecur._id}`) }}
                             >
-                                <div  className="size-9  overflow-hidden bg-[#6161ad] hover:bg-[#6161ad]/80 text-white font-semibold text-lg rounded-md flex items-center justify-center mr-2">
+                                <div className="size-9  overflow-hidden bg-[#6161ad] hover:bg-[#6161ad]/80 text-white font-semibold text-lg rounded-md flex items-center justify-center mr-2">
                                     {workspacecur?.name.charAt(0).toUpperCase()}
                                 </div>
                                 <p className="truncate">{workspacecur.name}</p>
@@ -67,7 +67,7 @@ export default function WorkspaceSwitcher() {
                     })
                 }
                 <DropdownMenuItem className="cursor-pointer"
-                    onClick={()=>setOpen(true)}
+                    onClick={() => setOpen(true)}
                 >
                     <div className="size-9 relative overflow-hidden bg-[#eee] hover:bg-[#eee]/80 text-slate-800 font-semibold text-lg rounded-md flex items-center justify-center mr-2">
                         <Plus></Plus>

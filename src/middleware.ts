@@ -14,7 +14,7 @@ export default convexAuthNextjsMiddleware(async (request, { convexAuth }) => {
         return nextjsMiddlewareRedirect(request, '/auth')
     }
     if (isPublicPage(request) && (await convexAuth.isAuthenticated())) {
-        return nextjsMiddlewareRedirect(request, '/chat')
+        return nextjsMiddlewareRedirect(request, '/napp/chat')
     }
 });
 

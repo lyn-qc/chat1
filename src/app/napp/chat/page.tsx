@@ -16,7 +16,7 @@ export default function Page() {
       return
     }
     if (workspacesId) {
-      router.push(`/workspaces/${workspacesId}`)
+      router.push(`/napp/workspaces/${workspacesId}`)
     }
     else {
       setOpen(true)
