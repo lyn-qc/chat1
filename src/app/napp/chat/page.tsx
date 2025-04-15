@@ -17,11 +17,11 @@ export default function Page() {
     }
     if (workspacesId) {
       router.push(`/napp/workspaces/${workspacesId}`)
-    }
+      ork
     else {
-      setOpen(true)
-    }
-  }, [isLoading, workspacesId, open, setOpen])
+        setOpen(true)
+      }
+    }, [isLoading, workspacesId, open, setOpen])
   return (
 
     <div className="h-[100vh]">

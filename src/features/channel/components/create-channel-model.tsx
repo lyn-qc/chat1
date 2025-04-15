@@ -10,9 +10,9 @@ import { useRouter } from 'next/navigation'
 
 export default function CreateChannelModel() {
     const router = useRouter()
-    const {mutate, isPending} = useCreateChannel()
+    const { mutate, isPending } = useCreateChannel()
     const [open, setOpen] = useCreateChannelModel()
-    const [name,setName] = useState('')
+    const [name, setName] = useState('')
     const workspaceId = useWorkspaceId()
     const handleClose = () => {
         setName("")
@@ -21,45 +21,45 @@ export default function CreateChannelModel() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         mutate(
-            {name,workspaceId},
+            { name, workspaceId },
             {
-                onSuccess: () =>{
-                    router.push(`/workspace/${workspaceId}/channel/{id}`)
+                onSuccess: () => {
+                    router.push(`/napp/workspace/${workspaceId}/channel/{id}`)
                     handleClose()
                 }
             }
         )
         // handleClose()
     }
-  return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent>
-        <DialogHeader>
-            <DialogTitle>Create Channel</DialogTitle>
-        </DialogHeader>
-        <form className='space-y-4' onSubmit={handleSubmit}>
-            <Input
-             value={name}
-             disabled={isPending}
-             placeholder='Channel Name'
-             required
-             autoFocus
-             minLength={3}
-             maxLength={20}
-             onChange={(e) => {
-                setName(e.target.value)
-             }
-             }
-            >
-            </Input>
-            <div className='flex justify-end'>
-                <Button type='submit' disabled={isPending}>
-                    Create
-                </Button>
-            </div>
-        </form>
-      </DialogContent>
+    return (
+        <Dialog open={open} onOpenChange={handleClose}>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Create Channel</DialogTitle>
+                </DialogHeader>
+                <form className='space-y-4' onSubmit={handleSubmit}>
+                    <Input
+                        value={name}
+                        disabled={isPending}
+                        placeholder='Channel Name'
+                        required
+                        autoFocus
+                        minLength={3}
+                        maxLength={20}
+                        onChange={(e) => {
+                            setName(e.target.value)
+                        }
+                        }
+                    >
+                    </Input>
+                    <div className='flex justify-end'>
+                        <Button type='submit' disabled={isPending}>
+                            Create
+                        </Button>
+                    </div>
+                </form>
+            </DialogContent>
 
-    </Dialog>
-  )
+        </Dialog>
+    )
 }

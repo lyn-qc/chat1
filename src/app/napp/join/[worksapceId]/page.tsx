@@ -21,7 +21,7 @@ export default function JoinPage() {
     const handleComplete = (value: string) => {
         mutate({ workspaceId, joinCode: value }, {
             onSuccess: (id) => {
-                router.push(`/workspaces/${id}`)
+                router.push(`/napp/workspaces/${id}`)
                 toast.success("加入成功")
             },
             onError: (error) => {

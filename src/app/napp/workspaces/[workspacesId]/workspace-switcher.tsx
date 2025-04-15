@@ -43,7 +43,7 @@ export default function WorkspaceSwitcher() {
             <DropdownMenuContent align="start" side='bottom' className="w-64">
                 <DropdownMenuItem
                     className="cursor-pointer flex-col justify-start items-start capitalize"
-                    onClick={() => { router.push(`/workspaces/${worksapceId}`) }}
+                    onClick={() => { router.push(`/napp/workspaces/${worksapceId}`) }}
                 >
                     {worksapce?.name}
                     <span className="text-xs text-muted-foreground">
