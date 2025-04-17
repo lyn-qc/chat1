@@ -12,10 +12,12 @@ import { UseGetMembers } from '@/features/member/api/use-get-members'
 import UserItem from './useritem'
 import { useCreateChannelModel } from '@/features/channel/store/use-create-clannel-model'
 import { useChannelId } from '@/hooks/use-channel-id'
+import { useMemberId } from '@/hooks/use-member-id'
 
 export default function Workspacesiberbar() {
   const workspaceId = useWorkspaceId()
   const channelId = useChannelId()
+  const memberId = useMemberId()
   const { data: member, isLoading: memberLoading } = useCurrentMember({ workspaceId })
   const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({ id: workspaceId })
   const {data: channel, isLoading: channelLoading } = useGetChannels({ workspaceId })
@@ -74,7 +76,7 @@ export default function Workspacesiberbar() {
             members?.map((item) => {
               return (
                 <UserItem key={item._id} label={item.user.name} image={item.user.image}
-                  id={item._id}
+                  id={item._id} variant={memberId == item._id ? "active" : "default"}
                 />
               )
             })

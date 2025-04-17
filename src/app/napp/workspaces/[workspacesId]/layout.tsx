@@ -10,7 +10,7 @@ import Workspacesiberbar from './workspacesiberbar';
 import usePanel from '@/hooks/use-panel';
 import { Loader } from 'lucide-react';
 import { Id } from 'convex/_generated/dataModel';
-import Thread from '@/features/message/component/thread';
+import {Thread} from '@/features/message/component/thread';
 
 export default function WorkspacesIdLayout({children}: workspaceIdLayoutProps) {
     const {parentMessageId,onCloseMessage} = usePanel()

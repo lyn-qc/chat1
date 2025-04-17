@@ -1,6 +1,6 @@
 import Message from "@/components/message";
 import { useCurrentMember } from "@/features/member/api/use-current-member";
-import { GetMessagesReturnType } from "@/features/message/api/use-get-message";
+import { GetMessagesReturnType } from "@/features/message/api/use-get-messages";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Id } from "convex/_generated/dataModel";
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";

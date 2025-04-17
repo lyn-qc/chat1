@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useMemo } from 'react'
 import ChannelHeader from './channel-header'
 import ChatInput from './chat-input'
-import { useGetMessage } from '@/features/message/api/use-get-message'
+import { useGetMessage } from '@/features/message/api/use-get-messages'
 import MessageList from './message-list'
 
 export default function ChannelPage() {

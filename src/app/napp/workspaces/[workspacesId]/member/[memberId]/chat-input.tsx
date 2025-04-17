@@ -10,14 +10,18 @@ import Quill from 'quill'
 import { useGenerateUpload } from '@/features/upload/api/use-generate-upload-url'
 import { useCreateMessage } from '@/features/message/api/use-create-message'
 type createMessageValues = {
-  channelId: Id<'channels'>;
+  conversationId: Id<'conversations'>;
   workspaceId: Id<'workspaces'>;
   body: string;
   image?: Id<'_storage'> | undefined;
 }
-
+interface ChatInputProps {
+  conversationId: Id<'conversations'>;
+}
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
-export default function ChatInput() {
+export default function MChatInput({
+  conversationId,
+}:ChatInputProps) {
   const editorRef = useRef<Quill | null>(null)
   const channelId = useChannelId()
   const workspaceId = useWorkspaceId()
@@ -36,7 +40,7 @@ export default function ChatInput() {
       setIsPending(true)
       editorRef.current?.enable(false)
       const values: createMessageValues = {
-        channelId,
+        conversationId,
         workspaceId,
         body,
         image: undefined

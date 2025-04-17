@@ -34,7 +34,7 @@ export default function UserItem({
     image,
     variant
 }:UserItemProps) { 
-    const worksapceId = useWorkspaceId();
+    const workspacesId = useWorkspaceId();
     const avatarFallback = label.charAt(0).toUpperCase();
   return (
     <Button
@@ -43,7 +43,7 @@ export default function UserItem({
      size="sm"
      asChild
     >
-        <Link href={`/worksapce/${worksapceId}/member/${id}`}>
+        <Link href={`/napp/workspaces/${workspacesId}/member/${id}`}>
             <Avatar className='size-5 rounded-md mr-1'>
                 <AvatarImage className='rounded-md' src={image} ></AvatarImage>
                 <AvatarFallback className='rounded-md bg-sky-500 text-white text-xs'>
