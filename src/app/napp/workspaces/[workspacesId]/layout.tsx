@@ -2,7 +2,7 @@
 interface workspaceIdLayoutProps{
     children: React.ReactNode;
 }
-import React from 'react'
+import React, { Profiler } from 'react'
 import Toolbar from './toolbar';
 import Sidebar from './sidebar';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
@@ -11,10 +11,11 @@ import usePanel from '@/hooks/use-panel';
 import { Loader } from 'lucide-react';
 import { Id } from 'convex/_generated/dataModel';
 import {Thread} from '@/features/message/component/thread';
+import Profile from '@/features/member/components/profile';
 
 export default function WorkspacesIdLayout({children}: workspaceIdLayoutProps) {
-    const {parentMessageId,onCloseMessage} = usePanel()
-    const showPanel = !!parentMessageId
+    const {parentMessageId,onCloseMessage,profileMemberId} = usePanel()
+    const showPanel = !!parentMessageId || !!profileMemberId
   return (
     <div>
         <Toolbar></Toolbar>
@@ -44,6 +45,12 @@ export default function WorkspacesIdLayout({children}: workspaceIdLayoutProps) {
                                  messageId= {parentMessageId as Id<"messages">}
                                  onClose={onCloseMessage}
                                 />
+                            ): profileMemberId?(
+                                <Profile
+                                 memberId={profileMemberId as Id<"members">}
+                                 onClose={onCloseMessage}
+                                />
+
                             ):(
                                 <div className='flex h-full items-center justify-center'>
                                     <Loader className='size-5 animate-spin text-muted-foreground'></Loader>

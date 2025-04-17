@@ -195,7 +195,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
                 <Message
                   key={message._id}
                   id={message._id}
-                  messageID={message.memberId}
+                  memberId={message.memberId}
                   authorName={message.user.name}
                   isAuthor={message.memberId === currentMember?._id}
                   authorImage={message.user.image}
@@ -246,7 +246,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
         <Message
           key={message._id}
           id={message._id}
-          messageID={message.memberId}
+          memberId={message.memberId}
           authorName={message.user.name}
           isAuthor={message.memberId === currentMember?._id}
           authorImage={message.user.image}

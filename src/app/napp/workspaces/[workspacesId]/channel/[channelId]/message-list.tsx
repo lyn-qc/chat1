@@ -81,7 +81,7 @@ export default function MessageList({
                     <Message
                       key={message._id}
                       id={message._id}
-                      messageID={message.memberId}
+                      memberId={message.member._id}
                       authorName={message.user.name}
                       isAuthor={message.memberId === CurrentMember?._id}
                       authorImage={message.user.image}
