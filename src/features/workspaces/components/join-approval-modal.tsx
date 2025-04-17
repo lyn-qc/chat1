@@ -12,8 +12,8 @@ import { Loader } from 'lucide-react'
 import { useConfirm } from '@/hooks/use-confirm'
 
 export const JoinApprovalModal = () => {
-    const { data, isLoading } = useGetPendingRequests()
-    const { mutate: approve, isPending } = useApproveJoinRequest()
+    // const { data, isLoading } = useGetPendingRequests()
+    // const { mutate: approve, isPending } = useApproveJoinRequest()
     const [ConfirmDialog, confirm] = useConfirm(
         "确认批准加入请求?",
         "用户将获得工作区访问权限"
@@ -28,7 +28,7 @@ export const JoinApprovalModal = () => {
                         <DialogTitle>待处理的加入请求</DialogTitle>
                     </DialogHeader>
 
-                    {isLoading ? (
+                    {/* {isLoading ? (
                         <Loader className="mx-auto animate-spin" />
                     ) : (
                         <div className="space-y-4">
@@ -53,7 +53,7 @@ export const JoinApprovalModal = () => {
                                 </div>
                             ))}
                         </div>
-                    )}
+                    )} */}
                 </DialogContent>
             </Dialog>
         </>
