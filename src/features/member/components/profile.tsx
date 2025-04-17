@@ -1,8 +1,10 @@
 import { Id } from "convex/_generated/dataModel"
 import { UseGetMember } from "../api/use-get-member";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, Loader, XIcon } from "lucide-react";
+import { AlertTriangle, Loader, MailIcon, XIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Separator } from "@radix-ui/react-dropdown-menu";
+import Link from "next/link";
 interface ProfileProps {
   memberId:Id<"members">;
   onClose: () => void;
@@ -55,12 +57,34 @@ export default function Profile({
               </Button>
             </div>
             <div className="flex flex-col items-center justify-center">
-            <Avatar className="max-w-[260px] max-h-[260px] rounded-md mt-2 overflow-hidden">
+            <Avatar className="max-w-[160px] max-h-[160px] rounded-md mt-2 overflow-hidden">
                     <AvatarImage src={member.user.image} />
-                    <AvatarFallback className="bg-sky-500 text-white font-bold w-[260px] h-[260px] aspect-square flex items-center justify-center text-6xl">
+                    <AvatarFallback className="bg-sky-500 text-white font-bold w-[160px] h-[160px] aspect-square flex items-center justify-center text-6xl">
                         {avatarFallback}
                     </AvatarFallback>
                 </Avatar>
+            </div>
+            <div className="flex flex-col p-4">
+                    <p className="text-xl font-bold">{member.user.name}</p>
+            </div>
+            <Separator></Separator>
+            <div className="flex flex-col p-4">
+                <p className="text-sm font-bold mb-4">联系信息</p>
+                <div className="flex items-center gap-2">
+                    <div className="size-9 rounded-md bg-muted flex items-center justify-center">
+                        <MailIcon className="size-4"></MailIcon>
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="text-[13px] font-semibold text-muted-foreground">
+                            Email Address
+                        </p>
+                        <Link href={`mailto:${member.user.email}`}
+                         className="text-sm hover:underline text-[#1264a3]"
+                        >
+                            {member.user.email}
+                        </Link>
+                    </div>
+                </div>
             </div>
           </div>
   )
